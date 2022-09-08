@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+  <h1>SIGNUP PAGE</h1>
+  <form action="{% url 'accounts:signup' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% comment %} 매서드라는걸 기억해두자  {% endcomment %}
+    {% comment %} 아 여기 파이썬 아니지 하고 괄호 지우면 됨 {% endcomment %}
+  <input type="submit">
+  </form> 
+  
+
+{% endblock content %}

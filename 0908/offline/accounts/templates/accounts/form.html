@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+{% comment %} 로그인 url로 요청이 왔을 때 
+싸인업 페이지로 요청이 왔을 때로 나뉘어보자 {% endcomment %}
+  {% if request.resolver_match.url_name == 'login' %}
+  <h1>Login PAGE</h1>
+
+  {% elif request.resolver_match.url_name == 'signup'%}
+  <h1>Signup PAGE</h1>
+
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% comment %} 매서드라는걸 기억해두자  {% endcomment %}
+    {% comment %} 아 여기 파이썬 아니지 하고 괄호 지우면 됨 {% endcomment %}
+  <input type="submit">
+  </form> 
+  
+
+{% endblock content %}
